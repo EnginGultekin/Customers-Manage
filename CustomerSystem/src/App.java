@@ -1,11 +1,9 @@
-import core.Database;
-import java.sql.Connection;
+import view.LoginUI;
 
 public class App {
     public static void main(String[] args) {
 
-        Connection connection1 = Database.getInstance();
-        Connection connection2 = Database.getInstance();
+        LoginUI loginUI = new LoginUI();
 
     }
 }
