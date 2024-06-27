@@ -1,6 +1,8 @@
 package view;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LoginUI extends JFrame {
     private JPanel container;
@@ -23,5 +25,8 @@ public class LoginUI extends JFrame {
         int y = (Toolkit.getDefaultToolkit().getScreenSize().height - this.getSize().height) / 2;
 
         this.setLocation(x, y);
+        this.btn_login.addActionListener(e -> {
+
+        });
     }
 }
