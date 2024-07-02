@@ -1,7 +1,9 @@
 package view;
 
+import business.UserController;
 import core.Helper;
 import core.Message;
+import entity.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,8 +18,12 @@ public class LoginUI extends JFrame {
     private JLabel lbl_mail;
     private JLabel lbl_password;
     private JPasswordField fld_password;
+    private final UserController userController;
 
     public LoginUI() {
+
+        this.userController = new UserController();
+
         this.add(container);
         this.setTitle("Customer Manage System");
         this.setSize(600, 600);
@@ -33,9 +39,15 @@ public class LoginUI extends JFrame {
             if (!Helper.isEmailValid(this.fld_mail.getText())) {
                 Message.showEmailErrorMessage();
             } else if (Helper.isFieldListEmpty(fields)) {
-                Message.showDoneMessage();
-            } else {
                 Message.showFillMessage();
+            } else {
+                User user = this.userController.findByLogin(this.fld_mail.getText(), this.fld_password.getText());
+                if(user != null){
+                    this.dispose();
+                    DashboardUI dashboardUI = new DashboardUI(user);
+                }else {
+                    Message.showWrongDataMessage();
+                }
             }
         });
     }

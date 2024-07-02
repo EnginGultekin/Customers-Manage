@@ -29,9 +29,9 @@ public class Helper {
     // Fields Control Func
     public static boolean isFieldListEmpty(JTextField[] fields) {
         for (JTextField field : fields) {
-            if (isFieldEmpty(field)) return false;
+            if (isFieldEmpty(field)) return true;
         }
-        return true;
+        return false;
     }
 
     // IsValid Email Func

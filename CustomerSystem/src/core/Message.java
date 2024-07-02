@@ -8,7 +8,7 @@ public class Message {
         JOptionPane.showMessageDialog(
                 null,
                 "Please fill all field!",
-                "ERROR",
+                "MISSING DATA",
                 JOptionPane.INFORMATION_MESSAGE
         );
     }
@@ -17,7 +17,7 @@ public class Message {
         JOptionPane.showMessageDialog(
                 null,
                 "Login successful.",
-                "ERROR",
+                "",
                 JOptionPane.DEFAULT_OPTION
         );
     }
@@ -26,8 +26,26 @@ public class Message {
         JOptionPane.showMessageDialog(
                 null,
                 "Invalid email address!",
-                "ERROR",
+                "WARNING",
                 JOptionPane.WARNING_MESSAGE
+        );
+    }
+
+    public static void showWrongDataMessage() {
+        JOptionPane.showMessageDialog(
+                null,
+                "Invalid email address or password!",
+                "WRONG DATA",
+                JOptionPane.ERROR_MESSAGE
+        );
+    }
+
+    public static void showWErrorMessage() {
+        JOptionPane.showMessageDialog(
+                null,
+                "User not found!",
+                "ERROR",
+                JOptionPane.ERROR_MESSAGE
         );
     }
 }
